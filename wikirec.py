@@ -29,13 +29,13 @@ def create_parser():
 def main():
     parser = create_parser()
     args = parser.parse_args()
+    if args.debug or not args.log:
+        print 'debug logging to console'
+        log.addObserver(log.FileLogObserver(sys.stdout).emit)
     if isinstance(args.log, basestring):
-        log_path = os.path.join(os.getcwd(), args.log)
-        log_file = open(log_path, 'w')
+        log_file = open(args.log, 'a')
         print 'logging to ' + str(log_file)
         log.startLogging(log_file)
-    if args.debug or not args.log:
-        log.startLogging(sys.stdout)
     factory = WebSocketClientFactory(args.websocket)
     factory.protocol = RecordClientProtocol
     connectWS(factory)
