@@ -5,16 +5,18 @@ Listen to [WikiMon](https://github.com/hatnote/wikimon), for record-keeping purp
 ## Usage
 
 ```
-usage: wikirec.py [-h] [--log LOG] [--websocket WEBSOCKET] [--debug]
+usage: wikirec.py [-h] [--logfile LOGFILE] [--websocket WEBSOCKET] [--debug]
+                  [--db DB]
 
-record edits from wikimon
+Save edits from wikimon
 
 optional arguments:
   -h, --help            show this help message and exit
-  --log LOG             log file to write
+  --logfile LOGFILE     file to save log
   --websocket WEBSOCKET
                         wikimon websocket url
-  --debug               print logging
+  --debug               print log in the console
+  --db DB               database to save log
 ```
 
 ## Requirements
