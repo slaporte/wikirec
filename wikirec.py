@@ -79,7 +79,7 @@ def main():
     if args.debug or (not args.logfile and not args.db):
         print 'debug logging to console'
         log.addObserver(log.FileLogObserver(sys.stdout).emit)
-    if args.db:
+    if not args.logfile and args.db:
         con = sqlite3.connect(args.db)
         try:
             # checking if db exists
